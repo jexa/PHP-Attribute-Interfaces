@@ -21,6 +21,7 @@
     ],
     "require": {
         "php":                 ">=8.2",
-        "jexa/php-interfaces": "dev-main"
+        "jexa/php-interfaces": "dev-main",
+        "doctrine/collections": "^2.1"
     }
 }
