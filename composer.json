@@ -1,0 +1,26 @@
+{
+    "name": "jexa/php-attribute-interfaces",
+    "description": "PHP Interfaces for an Attribute Model",
+    "type": "library",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Jexa\\PhpAttributeInterfaces\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jexa\\PhpAttributeInterfaces\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jexa",
+            "email": "johndconklin@gmail.com"
+        }
+    ],
+    "require": {
+        "php":                 ">=8.2",
+        "jexa/php-interfaces": "dev-main"
+    }
+}
