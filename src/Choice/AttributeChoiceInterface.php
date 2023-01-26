@@ -23,13 +23,9 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Choice;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
-
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeChoiceInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+
 }

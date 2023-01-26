@@ -23,13 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Version;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
-
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeDomainVersionAwareInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeDomainVersionInterface|null $domain_version
+     * @return void
+     */
+    public function setAttributeDomainVersion(?AttributeDomainVersionInterface $domain_version) : void;
+
+    /**
+     * @return AttributeDomainVersionInterface|null
+     */
+    public function getAttributeDomainVersion() : null|AttributeDomainVersionInterface;
 }

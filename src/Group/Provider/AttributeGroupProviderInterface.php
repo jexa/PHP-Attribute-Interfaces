@@ -23,13 +23,35 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Group\Provider;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Selectable;
+use Jexa\PhpAttributeInterfaces\Group\AttributeGroupInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeGroupProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasAttributeGroup(string $name) : bool;
+
+    /**
+     * @param string $name
+     * @return AttributeGroupInterface
+     */
+    public function getAttributeGroup(string $name) : AttributeGroupInterface;
+
+    /**
+     * @return Collection<string,AttributeGroupInterface>
+     */
+    public function getAttributeGroups() : Collection;
+
+    /**
+     * @param Criteria $criteria
+     * @return Selectable&Collection<string,AttributeGroupInterface>
+     */
+    public function findAttributeGroups(Criteria $criteria) : Collection&Selectable;
 }

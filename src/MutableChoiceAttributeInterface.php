@@ -25,11 +25,7 @@
 
 namespace Jexa\PhpAttributeInterfaces;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
-
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface MutableChoiceAttributeInterface extends ChoiceAttributeInterface, MutableAttributeInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+
 }

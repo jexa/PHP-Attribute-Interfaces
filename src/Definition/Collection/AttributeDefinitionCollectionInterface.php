@@ -23,13 +23,22 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Definition\Collection;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\Definition\AttributeDefinitionInterface;
+use Jexa\PhpAttributeInterfaces\Definition\Provider\AttributeDefinitionProviderInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeDefinitionCollectionInterface extends AttributeDefinitionProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeDefinitionInterface $definition
+     * @return bool
+     */
+    public function addAttributeDefinition(AttributeDefinitionInterface $definition) : bool;
+
+    /**
+     * @param AttributeDefinitionInterface $definition
+     * @return bool
+     */
+    public function removeAttributeDefinition(AttributeDefinitionInterface $definition) : bool;
 }

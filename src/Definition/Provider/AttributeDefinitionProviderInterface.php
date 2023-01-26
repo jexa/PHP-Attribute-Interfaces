@@ -23,13 +23,38 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Definition\Provider;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Selectable;
+use Jexa\PhpAttributeInterfaces\Definition\AttributeDefinitionInterface;
+use Jexa\PhpAttributeInterfaces\Exception\AttributeDefinitionNotFoundException;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeDefinitionProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasAttributeDefinition(string $name) : bool;
+
+    /**
+     * @param string $name
+     * @return AttributeDefinitionInterface
+     *
+     * @throws AttributeDefinitionNotFoundException
+     */
+    public function getAttributeDefinition(string $name) : AttributeDefinitionInterface;
+
+    /**
+     * @return Collection<string,AttributeDefinitionInterface>
+     */
+    public function getAttributeDefinitions() : Collection;
+
+    /**
+     * @param Criteria $criteria
+     * @return Selectable&Collection<string,AttributeDefinitionInterface>
+     */
+    public function findAttributeDefinitions(Criteria $criteria) : Collection&Selectable;
 }

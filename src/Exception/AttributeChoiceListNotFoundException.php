@@ -23,13 +23,11 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Exception;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use OutOfBoundsException;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+class AttributeChoiceListNotFoundException extends OutOfBoundsException
 {
-    public function getValue() : null|AttributeValueInterface;
+
 }

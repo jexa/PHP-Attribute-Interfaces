@@ -26,9 +26,11 @@
 namespace Jexa\PhpAttributeInterfaces\Domain;
 
 use Jexa\PhpAttributeInterfaces\Collection\AttributeCollectionInterface;
+use Jexa\PhpAttributeInterfaces\Definition\Provider\AttributeDefinitionProviderInterface;
+use Jexa\PhpAttributeInterfaces\Provider\AttributeProviderInterface;
 use Jexa\PhpInterfaces\NamedInterface;
 
-interface AttributeDomainInterface extends NamedInterface, AttributeCollectionInterface
+interface AttributeDomainInterface extends NamedInterface
 {
 
 }

@@ -23,13 +23,38 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\ChoiceList\Provider;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Selectable;
+use Jexa\PhpAttributeInterfaces\ChoiceList\AttributeChoiceListInterface;
+use Jexa\PhpAttributeInterfaces\Exception\AttributeChoiceListNotFoundException;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeChoiceListProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasChoiceList(string $name) : bool;
+
+    /**
+     * @param string $name
+     * @return AttributeChoiceListInterface
+     *
+     * @throws AttributeChoiceListNotFoundException
+     */
+    public function getChoiceList(string $name) : AttributeChoiceListInterface;
+
+    /**
+     * @return Collection<string,AttributeChoiceListInterface>
+     */
+    public function getAttributeChoiceLists() : Collection;
+
+    /**
+     * @param Criteria $criteria
+     * @return Selectable&Collection<string,AttributeChoiceListInterface>
+     */
+    public function findAttributeChoiceLists(Criteria $criteria) : Collection&Selectable;
 }

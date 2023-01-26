@@ -23,13 +23,22 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\ChoiceList\Collection;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\ChoiceList\AttributeChoiceListInterface;
+use Jexa\PhpAttributeInterfaces\ChoiceList\Provider\AttributeChoiceListProviderInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeChoiceListCollectionInterface extends AttributeChoiceListProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeChoiceListInterface $choice_list
+     * @return bool
+     */
+    public function addChoiceList(AttributeChoiceListInterface $choice_list) : bool;
+
+    /**
+     * @param AttributeChoiceListInterface $choice_list
+     * @return bool
+     */
+    public function removeChoiceList(AttributeChoiceListInterface $choice_list) : bool;
 }

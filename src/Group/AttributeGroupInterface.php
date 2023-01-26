@@ -23,13 +23,19 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Group;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\Definition\Collection\AttributeDefinitionCollectionInterface;
+use Jexa\PhpAttributeInterfaces\Group\Collection\AttributeGroupCollectionInterface;
+use Jexa\PhpInterfaces\MutableDescribedInterface;
+use Jexa\PhpInterfaces\MutableLabeledInterface;
+use Jexa\PhpInterfaces\MutableNamedInterface;
+use Jexa\PhpInterfaces\NamedInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeGroupInterface extends MutableNamedInterface,
+    MutableLabeledInterface,
+    MutableDescribedInterface,
+    AttributeDefinitionCollectionInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+
 }

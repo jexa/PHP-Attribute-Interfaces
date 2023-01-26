@@ -23,13 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\ChoiceList;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\Version\AttributeDomainVersionAwareInterface;
+use Jexa\PhpInterfaces\MutableDescribedInterface;
+use Jexa\PhpInterfaces\MutableLabeledInterface;
+use Jexa\PhpInterfaces\MutableNamedInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeChoiceListInterface extends
+    MutableNamedInterface,
+    MutableLabeledInterface,
+    MutableDescribedInterface,
+    AttributeDomainVersionAwareInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+
 }

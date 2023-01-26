@@ -23,13 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Definition;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
-
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeDefinitionAwareInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeDefinitionInterface|null $attribute_definition
+     * @return void
+     */
+    public function setAttributeDefinition(?AttributeDefinitionInterface $attribute_definition) : void;
+
+    /**
+     * @return AttributeDefinitionInterface|null
+     */
+    public function getAttributeDefinition() : null|AttributeDefinitionInterface;
 }

@@ -23,13 +23,22 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Group\Collection;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\Group\AttributeGroupInterface;
+use Jexa\PhpAttributeInterfaces\Group\Provider\AttributeGroupProviderInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeGroupCollectionInterface extends AttributeGroupProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeGroupInterface $group
+     * @return bool
+     */
+    public function addAttributeGroup(AttributeGroupInterface $group) : bool;
+
+    /**
+     * @param AttributeGroupInterface $group
+     * @return bool
+     */
+    public function removeAttributeGroup(AttributeGroupInterface $group) : bool;
 }

@@ -25,9 +25,15 @@
 
 namespace Jexa\PhpAttributeInterfaces\Version;
 
+use Jexa\PhpAttributeInterfaces\ChoiceList\Collection\AttributeChoiceListCollectionInterface;
+use Jexa\PhpAttributeInterfaces\Definition\Collection\AttributeDefinitionCollectionInterface;
+use Jexa\PhpAttributeInterfaces\Domain\AttributeDomainAwareInterface;
 use Jexa\PhpInterfaces\MutableNamedInterface;
 
-interface AttributeDomainVersionInterface extends MutableNamedInterface
+interface AttributeDomainVersionInterface extends MutableNamedInterface,
+    AttributeDomainAwareInterface,
+    AttributeDefinitionCollectionInterface,
+    AttributeChoiceListCollectionInterface
 {
 
 }

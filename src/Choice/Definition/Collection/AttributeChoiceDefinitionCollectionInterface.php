@@ -23,13 +23,22 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces;
+namespace Jexa\PhpAttributeInterfaces\Choice\Definition\Collection;
 
-use AttributeInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueAwareInterface;
-use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+use Jexa\PhpAttributeInterfaces\Choice\Definition\AttributeChoiceDefinitionInterface;
+use Jexa\PhpAttributeInterfaces\Choice\Definition\Provider\AttributeChoiceDefinitionProviderInterface;
 
-interface ValueAttributeInterface extends AttributeInterface, AttributeValueAwareInterface
+interface AttributeChoiceDefinitionCollectionInterface extends AttributeChoiceDefinitionProviderInterface
 {
-    public function getValue() : null|AttributeValueInterface;
+    /**
+     * @param AttributeChoiceDefinitionInterface $attribute_choice_definition
+     * @return bool
+     */
+    public function addAttributeChoiceDefinition(AttributeChoiceDefinitionInterface $attribute_choice_definition) : bool;
+
+    /**
+     * @param AttributeChoiceDefinitionInterface $attribute_choice_definition
+     * @return bool
+     */
+    public function removeAttributeChoiceDefinition(AttributeChoiceDefinitionInterface $attribute_choice_definition) : bool;
 }
