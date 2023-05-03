@@ -16,20 +16,26 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces\Value;
+namespace Jexa\PhpAttributeInterfaces\Value\PartialDate;
 
-interface MutablePartialDateValueInterface extends PartialDateValueInterface
+use Jexa\PhpAttributeInterfaces\Value\AttributeValueInterface;
+
+interface PartialDateValueInterface extends AttributeValueInterface
 {
-    public function setYear(null|int $year) : void;
+    public const PROPERTY_YEAR = 'year';
+    public const PROPERTY_MONTH = 'month';
+    public const PROPERTY_DAY = 'day';
 
-    public function setMonth(null|int $month) : void;
+   public function getYear() : null|int;
 
-    public function setDay(null|int $day) : void;
+   public function getMonth() : null|int;
+
+   public function getDay() : null|int;
 }

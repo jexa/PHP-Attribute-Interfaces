@@ -23,40 +23,18 @@
  * SOFTWARE.
  */
 
-namespace Jexa\PhpAttributeInterfaces\Definition\Provider;
+namespace Jexa\PhpAttributeInterfaces\Value\PartialDate;
 
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\Criteria;
-use Doctrine\Common\Collections\Selectable;
-use Jexa\PhpAttributeInterfaces\Definition\AttributeDefinitionInterface;
-use Jexa\PhpAttributeInterfaces\Exception\AttributeDefinitionNotFoundException;
+use DateTimeInterface;
+use InvalidArgumentException;
 
-interface AttributeDefinitionProviderInterface
+interface PartialDateConverterInterface
 {
-    public const PROPERTY_ATTRIBUTE_DEFINITIONS = 'attribute_definitions';
-
     /**
-     * @param string $name
-     * @return bool
-     */
-    public function hasAttributeDefinition(string $name) : bool;
-
-    /**
-     * @param string $name
-     * @return AttributeDefinitionInterface
+     * @param PartialDateValueInterface $partial_date_value
+     * @return DateTimeInterface
      *
-     * @throws AttributeDefinitionNotFoundException
+     * @throws InvalidArgumentException
      */
-    public function getAttributeDefinition(string $name) : AttributeDefinitionInterface;
-
-    /**
-     * @return Collection<string,AttributeDefinitionInterface>
-     */
-    public function getAttributeDefinitions() : Collection;
-
-    /**
-     * @param Criteria $criteria
-     * @return Selectable&Collection<string,AttributeDefinitionInterface>
-     */
-    public function findAttributeDefinitions(Criteria $criteria) : Collection&Selectable;
+    public function toDateTime(PartialDateValueInterface $partial_date_value) : DateTimeInterface;
 }
